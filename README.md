@@ -88,15 +88,16 @@ Directory
 Installation
 ============
 
-### Note
+### Support Install-Script
 
 * Automation Script for Management Web Server: setup.sh
-* Requirement for Management Web Server
+
+### Requirement for Management Web Server
 
 	Clean Installed Ubuntu 12.04
 	apt-get
 
-* Requirement for Physical(Compute) Node
+### Requirement for Physical(Compute) Node
 
 	Clean Installed Ubuntu 12.04
 	apt-get
