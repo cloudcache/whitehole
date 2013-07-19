@@ -90,8 +90,17 @@ Installation
 
 ### Note
 
-* Requirement: Clean Installed Ubuntu 12.04, apt-get
-* Automation Script: setup.sh
+* Automation Script for Management Web Server: setup.sh
+* Requirement for Management Web Server
+
+	Clean Installed Ubuntu 12.04
+	apt-get
+
+* Requirement for Physical(Compute) Node
+
+	Clean Installed Ubuntu 12.04
+	apt-get
+	libvirt, screen, socat, kvm, nfs-common, openssh-server
 
 ### Guide
 
