@@ -5,7 +5,7 @@ Description
 
 ### Notice
 
-* (I'm beginning php, so it is very helpful if help me clean up the source code .)
+* (I'm beginning PHP, so it is very helpful if help me clean up the source code .)
 * Prototype level, exception handling is weak.
 * Single management node and many KVM-Based computing nodes.
 * Simultaneous, multi-processing considerations weak.
