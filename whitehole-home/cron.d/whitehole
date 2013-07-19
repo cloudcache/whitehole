@@ -1,0 +1,8 @@
+# Update Node Resource Status
+*/5 * * * * root /usr/bin/php /home/whitehole/cron.d/collect_node_status.php
+*/1 * * * * root /usr/bin/php /home/whitehole/cron.d/collect_vm_status.php
+*/5 * * * * root /usr/bin/php /home/whitehole/cron.d/collect_secondary_storage.php
+*/5 * * * * root /usr/bin/php /home/whitehole/cron.d/collect_primary_storage.php
+*/5 * * * * root /usr/bin/php /home/whitehole/cron.d/mon_vm.php 2> /dev/null
+01 00 1 * * root /usr/bin/php /home/whitehole/cron.d/mon_clear_old.php 2> /dev/null
+*/5 * * * * root /bin/bash /home/whitehole/mrtg-run.sh

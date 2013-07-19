@@ -1,0 +1,11 @@
+<pool type="netfs">
+    <uuid>a9a09c23-8fee-4345-bf8c-df495a183440</uuid>
+    <name>test</name>
+    <source>
+        <host name="192.168.100.149"/>
+        <dir path="/whitehole"/>
+    </source>
+    <target>
+        <path>/mnt/nfs</path>
+    </target>
+</pool>

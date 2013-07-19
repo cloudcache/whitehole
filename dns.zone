@@ -1,0 +1,17 @@
+$ORIGIN .
+$TTL 3600   ; 1 hour
+@_DOMAIN_@        IN SOA  ns1.@_DOMAIN_@. admin.@_DOMAIN_@. (
+                2008094950 ; serial
+                3600       ; refresh (1 hour)
+                240        ; retry (4 minutes)
+                1209600    ; expire (2 weeks)
+                43200      ; minimum (12 hours)
+                )
+            NS  ns1.@_DOMAIN_@.
+            A   @_LOCAL_IP_@
+            MX  10 mail.@_DOMAIN_@.
+            TXT "v=spf1 ip4:@_LOCAL_IP_@ ~all"
+$ORIGIN test.org.
+$TTL 3600   ; 1 hour
+mail        A   @_LOCAL_IP_@
+ns1         A   @_LOCAL_IP_@
