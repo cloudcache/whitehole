@@ -10,7 +10,7 @@ Description
 * Simultaneous, multi-processing considerations weak.
 * Source code is not clean yet.
 * Not support Router/Pirvate-IP yet.
-* Default Template: Ubuntu Server 12.04.02 (x86_64) : http://goo.gl/UW1WP
+* Default Template: Ubuntu Server 12.04.02 x86_64 (Compressed qcow2 Image, about 320MB)
 * Default Password is set, If necessary, Null processing and Make Change.
 
 Screenshot
