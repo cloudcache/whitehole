@@ -19,7 +19,7 @@ Next Step
 * Router per Tenant for Private-IPs
 * VXLAN for Efficient traffic engineering and isolation
 * Load-Balancer with HAProxy
-* Etc...
+* Stabilization: Life-Cycle, Scheduler, Multi-Tenant, Monitoring, and etc...
 
 Screenshot
 ==========
