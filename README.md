@@ -11,7 +11,6 @@ Description
 * Source code is not clean yet.
 * Private-IP per Teanancy assignments are not yet considered. (Directly Public-IP like AWS EC2)
 * Default Template: Ubuntu Server 12.04.02 x86_64 (Compressed qcow2 Image, about 320MB)
-* Default Password is set, If necessary, Null processing and Make Change.
 
 Screenshot
 ==========
