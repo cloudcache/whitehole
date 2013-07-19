@@ -161,4 +161,5 @@ for i in `seq 0 15`; do mkdir /mnt/nbd$i; mysql -uroot -p1234 -h localhost white
 cd $SRC_DIR
 echo -e "$YELLOW ========================================================="
 echo -e "$YELLOW  Congratulations, the installation is complete. ^^"
+echo -e "$YELLOW  Input \"http://${LOCAL_IP}\" on your Web-Browser~~~"
 echo -e "$YELLOW ========================================================="
