@@ -77,19 +77,23 @@ Directory
 
 ### whitehole-home
 
-- Destination DIR: /home/whitehole
-- Cron, Monitoring, MRTG-Template, DDNS, Etc...
+* Destination DIR: /home/whitehole
+* Cron, Monitoring, MRTG-Template, DDNS, Etc...
 
 ### whitehole-html
 
-- Destination DIR: /var/www/html
-- PHP Sources, MySQL Schema, OpenSource-Board, Etc...
+* Destination DIR: /var/www/html
+* PHP Sources, MySQL Schema, OpenSource-Board, Etc...
 
 Installation
 ============
 
-- Requirement: Clean Installed Ubuntu 12.04, apt-get
-- Automation Script: setup.sh
+### Note
+
+* Requirement: Clean Installed Ubuntu 12.04, apt-get
+* Automation Script: setup.sh
+
+### Install
 
 * ./setup.sh
 * Input mysql root's password
@@ -105,6 +109,6 @@ Installation
 License and Author
 ==================
 
-- Author: JungJungIn (<call518@gmail.com>)
-- GNU GENERAL PUBLIC LICENSE Version 2
-- Board/Member/Login System's Source from http://www.miwit.com and http://sir.co.kr
+* Author: JungJungIn (<call518@gmail.com>)
+* GNU GENERAL PUBLIC LICENSE Version 2
+* Board/Member/Login System's Source from http://www.miwit.com and http://sir.co.kr
