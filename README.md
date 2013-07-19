@@ -9,8 +9,17 @@ Description
 * Single management node and many KVM-Based computing nodes.
 * Simultaneous, multi-processing considerations weak.
 * Source code is not clean yet.
-* Private-IP per Teanancy assignments are not yet considered. (Directly Public-IP like AWS EC2)
+* Private-IP per tenant assignments are not yet considered. (Directly Public-IP like AWS EC2)
 * Default Template: Ubuntu Server 12.04.02 x86_64 (Compressed qcow2 Image, about 320MB)
+
+Next Step
+=========
+
+* Source code cleanup
+* Router per Tenant for Private-IPs
+* VXLAN for Efficient traffic isolation
+* Load-Balancer with HAProxy
+* Etc...
 
 Screenshot
 ==========
@@ -22,7 +31,7 @@ Click to view.
 Feature
 =======
 
-* VM Instance: Create(from Template/ISO)/Delte/On/Off/Reboot
+* VM Instance: Create(from Template/ISO)/Delete/On/Off/Reboot
 * SSH-Keypair
 * Live-Migration
 * Monitoring: Traffic/Packet/CPU/DiskIO(Byte/Count)
