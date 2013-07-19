@@ -91,16 +91,16 @@ Installation
 - Requirement: Clean Installed Ubuntu 12.04, apt-get
 - Automation Script: setup.sh
 
-# ./setup.sh
-# Input mysql root's password
-# Input DDNS Info
-# Connect, http://{installed Server IP}
-# Web-UI Administrator ID/PW: admin / 1234 (Must change admin's password)
-# Add Primary/Secondary Storage (NFS Shared Storage Must be prepared first.)
-# Add Template from http://goo.gl/UW1WP (KVM, 64bit, Ubuntu-12.04)
-# Add Network-Pool Range: No Router, Direct IP to VM (e.g: 1.2.3.101 ~ 1.2.3.250)
-# Add Physical Node(Compute Node) by password method.
-# Test Create VM, and Enjoy
+* ./setup.sh
+* Input mysql root's password
+* Input DDNS Info
+* Connect, http://{installed Server IP}
+* Web-UI Administrator ID/PW: admin / 1234 (Must change admin's password)
+* Add Primary/Secondary Storage (NFS Shared Storage Must be prepared first.)
+* Add Template from http://goo.gl/UW1WP (KVM, 64bit, Ubuntu-12.04)
+* Add Network-Pool Range: No Router, Direct IP to VM (e.g: 1.2.3.101 ~ 1.2.3.250)
+* Add Physical Node(Compute Node) by password method.
+* Test Create VM, and Enjoy
 
 License and Author
 ==================
