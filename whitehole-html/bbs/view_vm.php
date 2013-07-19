@@ -301,7 +301,7 @@ if($query_origin) {
 						</table>
 					</td>
 					<td>
-						<center><input style="width: 110" type="button" onClick="javascript:goPageMrtg('Mon-<?=$uuid?>','http://172.21.18.11/mrtg/<?=$uuid?>')" value='Monitoring'></center>
+						<center><input style="width: 110" type="button" onClick="javascript:goPageMrtg('Mon-<?=$uuid?>','http://@_LOCAL_IP_@/mrtg/<?=$uuid?>')" value='Monitoring'></center>
 						<ul>
 						<li><b>vCPU:</b> <?=$cpu?> EA<p></li>
 						<li><b>vMEM:</b> <?=$memory_h?> MB<p></li>
@@ -312,8 +312,8 @@ if($query_origin) {
 						<ul>
 						<li><b>IP Addres:</b> <?=$ip_address?><p></li>
 						<li><b>Mac Addres:</b> <?=$mac?><p></li>
-						<li><b>Netmask:</b> 255.255.255.0<p></li>
-						<li><b>Gateway:</b> 172.21.18.1<p></li>
+						<li><b>Netmask:</b> @_NETMASK_@<p></li>
+						<li><b>Gateway:</b> @_GATEWAY_@<p></li>
 					</td>
 					<td>
 						<ul>

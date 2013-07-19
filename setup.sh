@@ -52,7 +52,7 @@ alert_msg() {
 
 export DEBIAN_FRONTEND=noninteractive
 
-msg "Set MySQL root password"
+msg "Input MySQL root password"
 echo -n -e "$YELLOW Input MySQL root's password: "
 read -s mysql_pw_1
 echo
@@ -64,6 +64,22 @@ reset_color
 msg "Set Dynamic DNS"
 echo -n -e "$YELLOW Input your domain-name (if not exist, then input 'test.org'): "
 read DOMAIN_NAME
+reset_color
+
+if [ $mysql_pw_1 != $mysql_pw_2 ]; then
+	alert_msg "the input value is not matched !!!"
+	exit 2
+fi
+
+msg "Set Default-Gateway Info"
+echo -e "$YELLOW (Notice) Last value must be \"1\" (e.g: 172.21.3.1)"
+echo -n -e "$YELLOW Input default gateway ip address: "
+read GATEWAY
+reset_color
+
+msg "Set Netmask Info"
+echo -n -e "$YELLOW Input Netmask (e.g: 255.255.255.0): "
+read NETMASK
 reset_color
 
 if [ $mysql_pw_1 != $mysql_pw_2 ]; then
@@ -100,6 +116,8 @@ cd $HTML_DIR
 ./perms.sh
 sed -i "s/mysql_root_pw/$mysql_pwd_1/g" $HTML_DIR/db_conn.php
 sed -i "s/@_LOCAL_IP_@/$LOCAL_IP/g" $HTML_DIR/functions.php
+sed -i "s/@_GATEWAY_@/$GATEWAY/g" $HTML_DIR/bbs/view_vm.php 
+sed -i "s/@_NETMASK_@/$NETMASK/g" $HTML_DIR/bbs/view_vm.php
 
 cd $SRC_DIR
 msg "Configure MySQL Database"

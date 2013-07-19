@@ -103,9 +103,6 @@ if (!$target_node) {
 }
 #$host_id=$data['1'];
 
-#$target_node="172.21.18.11";
-#$target_node="172.21.18.12";
-
 #echo $template_hypervisor;
 #echo $target_node;
 #exit;
@@ -312,7 +309,7 @@ if ("$template_os_type" == "RedHat") {
 	run_ssh_key('localhost','root',"sed -i 's/HOSTNAME=.*/HOSTNAME=$vm_name.@_DOMAIN_@/g' /mnt/nbd$nbd_num/etc/sysconfig/network");
 
 	## 임시: 여러가지...
-	run_ssh_key('localhost','root',"sed -i 's/172.21.19.116/172.21.18.11/g' /mnt/nbd$nbd_num/etc/yum.conf /mnt/nbd$nbd_num/etc/wgetrc; sed -i 's/172.21.80.54/172.21.18.11/g' /mnt/nbd$nbd_num/etc/yum.conf /mnt/nbd$nbd_num/etc/wgetrc; sed -i 's/^Defaults    requiretty$/#Defaults    requiretty/g' /etc/sudoers /mnt/nbd$nbd_num/etc/sudoers; echo 'setterm -blank off' >> /mnt/nbd$nbd_num/etc/rc.local; sed -i 's/172.21.19.15/172.21.81.140/g' /mnt/nbd$nbd_num/etc/ntp.conf; echo 'UseDNS no' >> /mnt/nbd$nbd_num/etc/ssh/sshd_config");
+	run_ssh_key('localhost','root',"sed -i '/172.21.19.116/d' /mnt/nbd$nbd_num/etc/yum.conf /mnt/nbd$nbd_num/etc/wgetrc; sed -i '/172.21.80.54/d' /mnt/nbd$nbd_num/etc/yum.conf /mnt/nbd$nbd_num/etc/wgetrc; sed -i 's/^Defaults    requiretty$/#Defaults    requiretty/g' /etc/sudoers /mnt/nbd$nbd_num/etc/sudoers; echo 'setterm -blank off' >> /mnt/nbd$nbd_num/etc/rc.local; sed -i '/172.21.19.15/d' /mnt/nbd$nbd_num/etc/ntp.conf; echo 'UseDNS no' >> /mnt/nbd$nbd_num/etc/ssh/sshd_config");
 	
 	$tmp_file="/tmp/hostname-$vm_uuid";
 	
@@ -351,7 +348,7 @@ EOF;
 #	run_ssh_key('localhost','root',"rm -f /etc/udev/rules.d/70-persistent-cd.rules /etc/udev/rules.d/70-persistent-net.rules /lib/udev/rules.d/75-net-description.rules /lib/udev/rules.d/75-persistent-net-generator.rules /lib/udev/rules.d/75-cd-aliases-generator.rules");
 
 	## 임시: 여러가지...
-	run_ssh_key('localhost','root',"sed -i 's/172.21.19.116/172.21.18.11/g' /mnt/nbd$nbd_num/etc/apt/apt.conf /mnt/nbd$nbd_num/etc/wgetrc; sed -i 's/172.21.80.54/172.21.18.11/g' /mnt/nbd$nbd_num/etc/apt/apt.conf /mnt/nbd$nbd_num/etc/wgetrc; sed -i 's/kr.archive.ubuntu.com/ftp.daum.net/g' /mnt/nbd$nbd_num/etc/apt/sources.list; sed -i '/^exit 0/d' /mnt/nbd$nbd_num/etc/rc.local; echo 'setterm -blank off' >> /mnt/nbd$nbd_num/etc/rc.local; echo 'exit 0' >> /mnt/nbd$nbd_num/etc/rc.local");
+	run_ssh_key('localhost','root',"sed -i '/172.21.19.116/d' /mnt/nbd$nbd_num/etc/apt/apt.conf /mnt/nbd$nbd_num/etc/wgetrc; sed -i '/172.21.80.54/d' /mnt/nbd$nbd_num/etc/apt/apt.conf /mnt/nbd$nbd_num/etc/wgetrc; sed -i 's/kr.archive.ubuntu.com/ftp.daum.net/g' /mnt/nbd$nbd_num/etc/apt/sources.list; sed -i '/^exit 0/d' /mnt/nbd$nbd_num/etc/rc.local; echo 'setterm -blank off' >> /mnt/nbd$nbd_num/etc/rc.local; echo 'exit 0' >> /mnt/nbd$nbd_num/etc/rc.local");
 
 	$tmp_file="/tmp/hostname-$vm_uuid";
 
@@ -467,8 +464,6 @@ system {
     name-server 168.126.63.2
     name-server 168.126.63.1
     ntp {
-        server 172.21.18.11 {
-        }
         server 0.vyatta.pool.ntp.org {
         }
         server 1.vyatta.pool.ntp.org {

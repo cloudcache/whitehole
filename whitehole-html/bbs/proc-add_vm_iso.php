@@ -74,9 +74,6 @@ if (!$target_node) {
 }
 #$host_id=$data['1'];
 
-#$target_node="172.21.18.11";
-#$target_node="172.21.18.12";
-
 #echo $template_hypervisor;
 #echo $target_node;
 #exit;
