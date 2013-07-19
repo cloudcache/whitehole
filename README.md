@@ -17,7 +17,7 @@ Next Step
 
 * Source code cleanup
 * Router per Tenant for Private-IPs
-* VXLAN for Efficient traffic isolation
+* VXLAN for Efficient traffic engineering and isolation
 * Load-Balancer with HAProxy
 * Etc...
 
