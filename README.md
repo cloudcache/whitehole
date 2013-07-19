@@ -93,7 +93,7 @@ Installation
 * Requirement: Clean Installed Ubuntu 12.04, apt-get
 * Automation Script: setup.sh
 
-### Install
+### Guide
 
 * ./setup.sh
 * Input mysql root's password
