@@ -36,23 +36,14 @@ Feature
 * Secondary Storage: Template/SSH-Keypair/Etc...
 
 
-Requirements
-============
-
-### Platform
-
-	# lsb_release -a
-
-	No LSB modules are available.
-	Distributor ID:	Ubuntu
-	Description:	Ubuntu 12.04.2 LTS
-	Release:	12.04
-	Codename:	precise
+Platform Requirement
+====================
 
 * Ubuntu Server 12.04 (x86_64)
 * KVM Hypervisor
 * NFS Storage (Primary/Secondary)
 * MRTG/SNMP/Etc..
+* Recommended Web-Browser: Google Chrom
 
 Software
 ========
