@@ -12,15 +12,6 @@ Description
 * Private-IP per tenant assignments are not yet considered. (Directly Public-IP like AWS EC2)
 * Default Template: Ubuntu Server 12.04.02 x86_64 (Compressed qcow2 Image, about 320MB)
 
-Next Step
-=========
-
-* Source code cleanup
-* Router per Tenant for Private-IPs
-* VXLAN for Efficient traffic engineering and isolation
-* Load-Balancer with HAProxy
-* Stabilization: Life-Cycle, Scheduler, Multi-Tenant, Monitoring, and etc...
-
 Screenshot
 ==========
 
@@ -123,6 +114,15 @@ Installation
 * Add Network-Pool Range: No Router, Direct IP to VM (e.g: 172.21.3.101 ~ 172.21.3.250)
 * Add Physical Node(Compute Node) by password method.
 * Test Create VM, and Enjoy
+
+Next Step
+=========
+
+* Source code cleanup
+* Router per Tenant for Private-IPs
+* VXLAN for Efficient traffic engineering and isolation
+* Load-Balancer with HAProxy
+* Stabilization: Life-Cycle, Scheduler, Multi-Tenant, Monitoring, and etc...
 
 License and Author
 ==================
