@@ -88,7 +88,7 @@ Directory
 Installation
 ============
 
-### Support Install-Script
+### Support Bash-Script
 
 * Automation Script for Management Web Server: setup.sh
 
