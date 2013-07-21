@@ -110,8 +110,7 @@ Installation
 
 ### Guide for Physical Node
 
-* Auto Run, when add "Physical Machine" on Management Web Console.
-* or Manual Run....
+* Now, Manual Run....
 
 Next Step
 =========
