@@ -53,7 +53,7 @@ export DEBIAN_FRONTEND=noninteractive
 cd $SRC_DIR
 msg "Install Package for Whitehole"
 apt-get update
-apt-get -q -y install kvm libvirt-bin sysstat screen socat
+apt-get -q -y install kvm libvirt-bin sysstat screen socat nfs-common
 
 cd $SRC_DIR
 msg "Configure ETC Env."
