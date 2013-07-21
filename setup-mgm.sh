@@ -113,6 +113,7 @@ cd $SRC_DIR
 msg "Install HTML source"
 cp -av whitehole-html $HTML_DIR
 cd $HTML_DIR
+chmod 755 ./perms.sh
 ./perms.sh
 sed -i "s/mysql_root_pw/$mysql_pwd_1/g" $HTML_DIR/db_conn.php
 sed -i "s/@_LOCAL_IP_@/$LOCAL_IP/g" $HTML_DIR/functions.php
