@@ -63,3 +63,4 @@ cd $SRC_DIR
 echo -e "$YELLOW ========================================================="
 echo -e "$YELLOW  Congratulations, the installation is complete. ^^"
 echo -e "$YELLOW ========================================================="
+reset_color

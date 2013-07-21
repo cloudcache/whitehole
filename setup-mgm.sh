@@ -182,3 +182,4 @@ echo -e "$YELLOW ========================================================="
 echo -e "$YELLOW  Congratulations, the installation is complete. ^^"
 echo -e "$YELLOW  Input \"http://${LOCAL_IP}\" on your Web-Browser~~~"
 echo -e "$YELLOW ========================================================="
+reset_color
