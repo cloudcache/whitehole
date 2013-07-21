@@ -79,9 +79,10 @@ Directory
 Installation
 ============
 
-### Support Bash-Script
+### Support Auto Install-Script
 
-* Automation Script for Management Web Server: setup.sh
+* Mamangement Server: setup-mgm.sh
+* Physical Compute Node: setup-node.sh
 
 ### Requirement for Management Web Server
 
@@ -94,9 +95,9 @@ Installation
 	apt-get
 	libvirt, screen, socat, kvm, nfs-common, openssh-server
 
-### Guide
+### Guide for Memangement Node
 
-* ./setup.sh
+* ./setup-mgm.sh
 * Input mysql root's password
 * Input DDNS Info
 * Connect, http://{installed Server IP}
@@ -106,6 +107,11 @@ Installation
 * Add Network-Pool Range: No Router, Direct IP to VM (e.g: 172.21.3.101 ~ 172.21.3.250)
 * Add Physical Node(Compute Node) by password method.
 * Test Create VM, and Enjoy
+
+### Guide for Physical Node
+
+* Auto Run, when add "Physical Machine" on Management Web Console.
+* or Manual Run....
 
 Next Step
 =========
