@@ -172,10 +172,11 @@ chmod 775 /var/lib/bind
 /etc/init.d/bind9 restart
 
 cd $SRC_DIR
-msg "Configure ETC Env."
+msg "Configure Etc..."
 echo "nbd" >> /etc/modules
 modprobe nbd
 for i in `seq 0 15`; do mkdir /mnt/nbd$i; mysql -uroot -p1234 -h localhost whitehole -e "insert into nbd values ('$i','0')"; done
+service apache2 restart
 
 cd $SRC_DIR
 echo -e "$YELLOW ========================================================="
