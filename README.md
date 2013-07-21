@@ -11,7 +11,7 @@ Description
 * Simultaneous, multi-processing considerations weak.
 * Source code is not clean yet.
 * Private-IP per tenant assignments are not yet considered. (Directly Public-IP like AWS EC2)
-* Default Template: Ubuntu Server 12.04.02 x86_64 (Compressed qcow2 Image, about 320MB)
+* Default Template: Ubuntu Server 13.04 x86_64 (Compressed qcow2 Image, about 320MB)
 
 Screenshot
 ==========
@@ -39,7 +39,7 @@ Feature
 Platform Requirement
 ====================
 
-* Ubuntu Server 12.04 (x86_64)
+* Ubuntu Server 13.04 (x86_64)
 * KVM Hypervisor
 * NFS Storage (Primary/Secondary)
 * MRTG/SNMP/Etc..
@@ -85,12 +85,12 @@ Installation
 
 ### Requirement for Management Web Server
 
-	Clean Installed Ubuntu 12.04
+	Clean Installed Ubuntu 13.04
 	apt-get
 
 ### Requirement for Physical(Compute) Node
 
-	Clean Installed Ubuntu 12.04
+	Clean Installed Ubuntu 13.04
 	apt-get
 	libvirt, screen, socat, kvm, nfs-common, openssh-server
 
@@ -102,7 +102,7 @@ Installation
 * Connect, http://{installed Server IP}
 * Web-UI Administrator ID/PW: admin / 1234 (Must change admin's password)
 * Add Primary/Secondary Storage (NFS Shared Storage Must be prepared first.)
-* Add Template from http://goo.gl/UW1WP (KVM, 64bit, Ubuntu-12.04)
+* Add Template from http://goo.gl/UW1WP (KVM, 64bit, Ubuntu-13.04)
 * Add Network-Pool Range: No Router, Direct IP to VM (e.g: 172.21.3.101 ~ 172.21.3.250)
 * Add Physical Node(Compute Node) by password method.
 * Test Create VM, and Enjoy
