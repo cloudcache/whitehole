@@ -164,7 +164,8 @@ zone \"$DOMAIN_NAME\" IN {
 };" >> /etc/bind/named.conf.local
 cp -av dns.zone /var/lib/bind/$DOMAIN_NAME.zone
 sed -i "s/@_LOCAL_IP_@/$LOCAL_IP/g" /var/lib/bind/$DOMAIN_NAME.zone
-sed -i "s/@_DOMAIN_@/$DOMAIN_NAME/g" /var/lib/bind/$DOMAIN_NAME.zone /var/www/html/proc-add_vm.php /var/www/html/proc-remove_vm.php
+sed -i "s/@_DOMAIN_@/$DOMAIN_NAME/g" /var/lib/bind/$DOMAIN_NAME.zone $HTML_DIR/bbs/proc-add_vm.php $HTML_DIR/bbs/proc-remove_vm.php
+sed -i "s/@_DNS_@/$LOCAL_IP/g" setup-node.sh
 chown bind:bind /var/lib/bind/$DOMAIN_NAME.zone
 chmod 644 /var/lib/bind/$DOMAIN_NAME.zone
 chown root:bind /var/lib/bind

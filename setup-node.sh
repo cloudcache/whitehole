@@ -7,6 +7,9 @@ fi
 
 SRC_DIR=`pwd`
 LOCAL_IP=`/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'`
+GATEWAY=`/sbin/route -n | grep 'UG' | awk '{ print $2}'`
+NETMASK=`/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f4 | awk '{ print $1}'`
+DNS="@_DNS_@"
 
 RESET="\033[0m"
 
@@ -56,9 +59,27 @@ apt-get update
 apt-get -q -y install kvm libvirt-bin sysstat screen socat nfs-common
 
 cd $SRC_DIR
-msg "Configure ETC Env."
+msg "Configure Bridge Network Env."
+echo "# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The bridge network interface
+auto br0
+iface br0 inet static
+        address $LOCAL_IP
+        netmask $NETMASK
+        gateway $GATEWAY
+        # dns-* options are implemented by the resolvconf package, if installed
+        dns-nameservers $DNS
+        bridge_ports eth0
+                bridge_stp off
+                bridge_fd 0
+                #bridge_maxwait 0" > /etc/network/interfaces
+service networking restart
 
 cd $SRC_DIR
 echo -e "$YELLOW ========================================================="
 echo -e "$YELLOW  Congratulations, the installation is complete. ^^"
 echo -e "$YELLOW ========================================================="
+reset_color
