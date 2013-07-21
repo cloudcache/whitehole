@@ -93,7 +93,7 @@ apt-get update
 
 cd $SRC_DIR
 msg "Install Packages for Whitehole"
-apt-get -y install make apache2 libapache2-mod-php5 libssh2-php php5 php5-dev php5-cli php5-common php5-curl php5-gd php5-imagick php5-mysql php5-snmp php5-xmlrpc mysql-server mysql-client bind9 snmp snmp-mibs-downloader snmpd mrtg nfs-common libvirt-dev libxml2 libxml2-dev libxml2-utils xsltproc bind9 bind9utils virt-manager qemu-utils kpartx
+apt-get -y install make apache2 libapache2-mod-php5 libssh2-php libssh2-1 libssh2-1-dbg libssh2-1-dev php5 php5-dev php5-cli php5-common php5-curl php5-gd php5-imagick php5-mysql php5-snmp php5-xmlrpc mysql-server mysql-client bind9 snmp snmp-mibs-downloader snmpd mrtg nfs-common libvirt-dev libxml2 libxml2-dev libxml2-utils xsltproc bind9 bind9utils virt-manager qemu-utils kpartx
 mysqladmin -u root password $mysql_pw_1
 
 cd $SRC_DIR
@@ -107,7 +107,7 @@ cd libvirt-php-0.4.8/
 #tar zxvf ssh2-0.12.tgz
 #cd ssh2-0.12/
 #phpize
-#./configure ./configure --with-ssh2 && make && make install
+#./configure --with-ssh2 && make && make install
 
 cd $SRC_DIR
 msg "Install HTML source"
