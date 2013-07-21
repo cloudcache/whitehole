@@ -140,14 +140,14 @@ StrictHostKeyChecking no" >> /etc/ssh/ssh_config
 echo "useDNS no" >> /etc/ssh/sshd_config
 mkdir $SSH_KEY_DIR
 ssh-keygen -t rsa -P '' -f $SSH_KEY_DIR/id_rsa
+chown -R www-data:www-data $SSH_KEY_DIR
 mkdir /root/.ssh
 chmod 700 /root/.ssh
-cp -a $SSH_KEY_DIR/id_rsa /root/.ssh/
-cp $SSH_KEY_DIR/id_rsa.pub >> /root/.ssh/authorized_keys
-chown www-data:www-data $SSH_KEY_DIR
+cp $SSH_KEY_DIR/id_rsa /root/.ssh/
+cat $SSH_KEY_DIR/id_rsa.pub >> /root/.ssh/authorized_keys
 chmod 700 $SSH_KEY_DIR /root/.ssh
 chown root:root /root/.ssh/id_rsa
-chmod 700 /root/.ssh/id_rsa
+chmod 600 /root/.ssh/id_rsa
 
 cd $SRC_DIR
 msg "install Script/Cron Env."
