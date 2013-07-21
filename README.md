@@ -60,7 +60,7 @@ Software
 ### External Solution
 
 * libvirt-php
-* ssh2
+* ssh2 (No longer needed...)
 * jquery-ui
 
 Directory
