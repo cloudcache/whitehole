@@ -81,7 +81,7 @@ Installation
 
 ### Support Auto Install-Script
 
-* Mamangement Server: setup-mgm.sh
+* Mamangement Server: setup-mgm.sh (Should be executed before setup-node.sh)
 * Physical Compute Node: setup-node.sh
 
 ### Requirement for Management Web Server
@@ -106,11 +106,12 @@ Installation
 * Add Template from http://goo.gl/UW1WP, Name/Desc is "Template-Ubuntu-13.04 x86_64", etc is KVM, 64bit, Debian.
 * Add Network-Pool Range: No Router, Direct IP to VM (e.g: 172.21.3.101 ~ 172.21.3.250)
 * Add Physical Node(Compute Node) by password method.
-* Test Create VM, and Enjoy
+* Test Create VM, and Enjoy.
 
 ### Guide for Physical Node
 
-* Now, Manual Run....
+* Copy to Physical Node(Ubuntu13.04), then  Manual execute....
+* Check script content.. changed "@_DNS_@" to "IP Address".
 
 Next Step
 =========

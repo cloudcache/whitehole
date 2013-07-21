@@ -59,7 +59,7 @@ apt-get update
 apt-get -q -y install kvm libvirt-bin sysstat screen socat nfs-common
 
 cd $SRC_DIR
-msg "Configure Bridge Network Env."
+msg "Configure Bridge & Network Env."
 echo "# The loopback network interface
 auto lo
 iface lo inet loopback
@@ -76,6 +76,7 @@ iface br0 inet static
                 bridge_stp off
                 bridge_fd 0
                 #bridge_maxwait 0" > /etc/network/interfaces
+echo "nameserver $DNS" > /etc/resolvconf/resolv.conf.d/head
 service networking restart
 
 cd $SRC_DIR
