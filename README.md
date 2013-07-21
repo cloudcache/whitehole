@@ -103,7 +103,7 @@ Installation
 * Connect, http://{installed Server IP}
 * Web-UI Administrator ID/PW: admin / 1234 (Must change admin's password)
 * Add Primary/Secondary Storage (NFS Shared Storage Must be prepared first.)
-* Add Template from http://goo.gl/UW1WP (KVM, 64bit, Ubuntu-13.04)
+* Add Template from http://goo.gl/UW1WP, Name/Desc is "Template-Ubuntu-13.04 x86_64", etc is KVM, 64bit, Debian.
 * Add Network-Pool Range: No Router, Direct IP to VM (e.g: 172.21.3.101 ~ 172.21.3.250)
 * Add Physical Node(Compute Node) by password method.
 * Test Create VM, and Enjoy
