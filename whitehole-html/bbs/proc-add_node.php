@@ -23,7 +23,7 @@ run_ssh_pass($ssh_host, 'root', $ssh_pass, 'chmod 700 /root/.ssh');
 run_scp_pass($ssh_host, 'root', $ssh_pass, '/var/www/.ssh/id_rsa.pub', "/root/.ssh/authorized_keys");
 run_ssh_pass($ssh_host, 'root', $ssh_pass, 'chmod 0644 /root/.ssh/authorized_keys');
 ## WARNING: remote apt-get not works
-#run_ssh_key($ssh_host, 'root', "sudo apt-get update && sudo apt-get -y install kvm libvirt-bin sysstat screen socat nfs-common");
+#run_ssh_key($ssh_host, 'root', "sudo apt-get update && sudo apt-get -q -y install kvm libvirt-bin sysstat screen socat nfs-common");
 $path_base="$path_pri/base";
 run_ssh_key('localhost', 'root', "mkdir -p $path_base");
 run_ssh_key($ssh_host, 'root', "echo 'options kvm_intel nested=1' > /etc/modprobe.d/kvm-nested_intel.conf; modprobe -r kvm_intel; modprobe kvm_intel");
