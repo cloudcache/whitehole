@@ -108,6 +108,11 @@ Installation
 * Add Physical Node(Compute Node) by password method.
 * Test Create VM, and Enjoy.
 
+### NFS Server's /etc/exportfs Example
+
+	/home/nfs/pri   *(rw,async,no_root_squash)
+	/home/nfs/sec   *(rw,async,no_root_squash)
+
 ### Guide for Physical Node
 
 * Copy to Physical Node(Ubuntu13.04), then  Manual execute....
