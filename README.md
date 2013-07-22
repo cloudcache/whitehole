@@ -121,10 +121,11 @@ Installation
 Next Step
 =========
 
-* Source code cleanup
-* Router per Tenant for Private-IPs
-* VXLAN for Efficient traffic engineering and isolation
-* Load-Balancer with HAProxy
+* Source code cleanup.
+* Router per Tenant for Private-IPs.
+* Live & On-Line Snapshot.
+* VXLAN for Efficient traffic engineering and isolation.
+* Load-Balancer with HAProxy.
 * Stabilization: Life-Cycle, Scheduler, Multi-Tenant, Monitoring, and etc...
 
 License and Author

@@ -87,7 +87,7 @@ function waiting()
 		position: ['middle',100],
 		autoOpen: false,
 		width: 500,
-		height: 130,draggable: false,
+		height: 140,draggable: false,
 		resizable: false
 	});
 	$('#link_ssh_create_key').click(function(){
