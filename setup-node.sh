@@ -78,6 +78,8 @@ iface br0 inet static
                 #bridge_maxwait 0" > /etc/network/interfaces
 echo "nameserver $DNS" > /etc/resolvconf/resolv.conf.d/head
 service networking restart
+echo "UseDNS no" >> /etc/ssh/sshd_config
+service ssh restart
 
 cd $SRC_DIR
 echo -e "$YELLOW ========================================================="
