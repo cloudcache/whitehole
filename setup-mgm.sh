@@ -116,7 +116,7 @@ cd $HTML_DIR
 chmod 755 ./perms.sh
 ./perms.sh
 sed -i "s/mysql_root_pw/$mysql_pw_1/g" $HTML_DIR/db_conn.php $HTML_DIR/dbconfig.php
-sed -i "s/@_LOCAL_IP_@/$LOCAL_IP/g" $HTML_DIR/functions.php
+sed -i "s/@_LOCAL_IP_@/$LOCAL_IP/g" $HTML_DIR/functions.php $HTML_DIR/bbs/view_vm.php
 sed -i "s/@_GATEWAY_@/$GATEWAY/g" $HTML_DIR/bbs/view_vm.php 
 sed -i "s/@_NETMASK_@/$NETMASK/g" $HTML_DIR/bbs/view_vm.php
 
