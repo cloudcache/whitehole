@@ -348,7 +348,7 @@ EOF;
 #	run_ssh_key('localhost','root',"rm -f /etc/udev/rules.d/70-persistent-cd.rules /etc/udev/rules.d/70-persistent-net.rules /lib/udev/rules.d/75-net-description.rules /lib/udev/rules.d/75-persistent-net-generator.rules /lib/udev/rules.d/75-cd-aliases-generator.rules");
 
 	## 임시: 여러가지...
-	run_ssh_key('localhost','root',"sed -i '/172.21.19.116/d' /mnt/nbd$nbd_num/etc/apt/apt.conf /mnt/nbd$nbd_num/etc/wgetrc; sed -i '/172.21.80.54/d' /mnt/nbd$nbd_num/etc/apt/apt.conf /mnt/nbd$nbd_num/etc/wgetrc; sed -i 's/kr.archive.ubuntu.com/ftp.daum.net/g' /mnt/nbd$nbd_num/etc/apt/sources.list; sed -i '/^exit 0/d' /mnt/nbd$nbd_num/etc/rc.local; echo 'setterm -blank off' >> /mnt/nbd$nbd_num/etc/rc.local; echo 'exit 0' >> /mnt/nbd$nbd_num/etc/rc.local");
+	run_ssh_key('localhost','root',"sed -i '/172.21.19.116/d' /mnt/nbd$nbd_num/etc/apt/apt.conf /mnt/nbd$nbd_num/etc/wgetrc; sed -i '/172.21.80.54/d' /mnt/nbd$nbd_num/etc/apt/apt.conf /mnt/nbd$nbd_num/etc/wgetrc; sed -i 's/kr.archive.ubuntu.com/ftp.daum.net/g' /mnt/nbd$nbd_num/etc/apt/sources.list; sed -i '/^exit 0/d' /mnt/nbd$nbd_num/etc/rc.local; echo 'setterm -blank off' >> /mnt/nbd$nbd_num/etc/rc.local; echo 'apt-get update && apt-get -y install ntp && sed -i \"/apt-get -y install ntp/d\" /etc/rc.local' >> /mnt/nbd$nbd_num/etc/rc.local; echo 'exit 0' >> /mnt/nbd$nbd_num/etc/rc.local");
 
 	$tmp_file="/tmp/hostname-$vm_uuid";
 
