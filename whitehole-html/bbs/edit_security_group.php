@@ -178,7 +178,7 @@ if ($protocol=="icmp") {
 <?
 if ($loguser=="admin") {
 ?>
-	<center><input style='width: 100' type="button" onClick="location.href='proc-apply_security_group.php?vm_uuid=<?=$vm_uuid?>&security_group_uuid=<?=$uuid?>'" value="Policy Reload"></center>
+	<center><input style='width: 100' type="button" onClick="location.href='proc-apply_security_group.php?vm_uuid=<?=$vm_uuid?>&uuid=<?=$uuid?>&rule_name=<?=$rule_name?>&account=<?=$account?>'" value="Policy Reload"></center>
 <?
 }
 ?>
