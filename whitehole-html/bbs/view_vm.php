@@ -296,7 +296,7 @@ if($query_origin) {
 							</tr>
 							<tr align=center>
 								<td>
-								<input style='width: 117' type="button" onClick="javascript:goPageEditSG('EditSG-<?="$uuid"?>','edit_security_group.php?rule_name=<?=$security_group_rule_name?>&uuid=<?=$security_group_uuid?>&account=<?=$account?>')" value="Security Group"><br>
+								<input style='width: 117' type="button" onClick="javascript:goPageEditSG('EditSG-<?="$uuid"?>','edit_security_group.php?vm_uuid=<?=$uuid?>&rule_name=<?=$security_group_rule_name?>&uuid=<?=$security_group_uuid?>&account=<?=$account?>')" value="Security Group"><br>
 							</tr>
 						</table>
 					</td>

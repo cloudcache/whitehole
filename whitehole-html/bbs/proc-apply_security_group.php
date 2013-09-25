@@ -5,6 +5,8 @@ include "../functions.php";
 $path_nwfilter_xml="/home/mnt/sec/xml-nwfilter";
 $security_group_uuid=$_GET['security_group_uuid'];
 
+$vm_uuid=$_GET['vm_uuid'];
+
 include "include-apply_security_group.php";
 
 echo ("
