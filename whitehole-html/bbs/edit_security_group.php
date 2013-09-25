@@ -19,7 +19,6 @@ include "../functions.php";
 
 $rule_name=$_GET['rule_name'];
 $uuid=$_GET['uuid'];
-$vm_uuid=$_GET['vm_uuid'];
 $account=$_GET['account'];
 
 ?>
@@ -42,7 +41,7 @@ function goPage(name, url){
 	<b>Security Group Name: <font color=green><?=$rule_name?></font></b>
 </center>
 
-<form name=add_security_groupm method=post action='proc-add_security_ruleset.php?uuid=<?=$uuid?>&vm_uuid=<?=$vm_uuid?>&rule_name=<?=$rule_name?>&account=<?=$account?>'>
+<form name=add_security_groupm method=post action='proc-add_security_ruleset.php?uuid=<?=$uuid?>&rule_name=<?=$rule_name?>&account=<?=$account?>'>
 <b>신규 정책 추가</b>
 <!--
 <a href="sg_guide.php" target=_blank><font size=2>[작성 가이드]</font></a>
@@ -167,7 +166,7 @@ if ($protocol=="icmp") {
 }
 ?>
 		<td><?=strtoupper($action)?>
-		<td><input style='width: 60' type="button" onClick="location.href='proc-remove_security_ruleset.php?vm_uuid=<?=$vm_uuid?>&num=<?=$num?>&uuid=<?=$uuid?>&rule_name=<?=$rule_name?>&account=<?=$account?>'" value="Remove"><br>
+		<td><input style='width: 60' type="button" onClick="location.href='proc-remove_security_ruleset.php?num=<?=$num?>&uuid=<?=$uuid?>&rule_name=<?=$rule_name?>&account=<?=$account?>'" value="Remove"><br>
 	</tr>
 <?
 }
@@ -178,7 +177,7 @@ if ($protocol=="icmp") {
 <?
 if ($loguser=="admin") {
 ?>
-	<center><input style='width: 100' type="button" onClick="location.href='proc-apply_security_group.php?vm_uuid=<?=$vm_uuid?>&uuid=<?=$uuid?>&rule_name=<?=$rule_name?>&account=<?=$account?>'" value="Policy Reload"></center>
+	<center><input style='width: 100' type="button" onClick="location.href='proc-apply_security_group.php?uuid=<?=$uuid?>&rule_name=<?=$rule_name?>&account=<?=$account?>'" value="Policy Reload"></center>
 <?
 }
 ?>

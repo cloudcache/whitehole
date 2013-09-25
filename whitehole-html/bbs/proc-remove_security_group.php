@@ -6,7 +6,6 @@ include "../functions.php";
 
 $rule_name=$_GET['rule_name'];
 $uuid=$_GET['uuid'];
-$vm_uuid=$_GET['vm_uuid'];
 $account=$_GET['account'];
 
 $query="select used_count from security_group where account='$account'";
