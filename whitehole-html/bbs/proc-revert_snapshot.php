@@ -26,7 +26,7 @@ $create_time=$_GET['create_time'];
 $target_node=$_GET['target_node'];
 $vnc_port=$_GET['vnc_port'];
 
-$res=libvirt_connect("qemu+ssh://root@$tatget_node/system","0");
+$res=libvirt_connect("qemu+ssh://root@$target_node/system","0");
 $dom=libvirt_domain_lookup_by_name($res,$vm_name);
 $snapshot_res=libvirt_domain_snapshot_lookup_by_name($dom, $create_time);
 if (!$snapshot_res) {
