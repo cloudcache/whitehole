@@ -39,6 +39,7 @@ $template_os_type=$data['4'];
 #$hostname=$_POST['hostname'];
 $core=$_POST['core'];
 $memory=$_POST['memory']*1024;
+$root_volume=$_POST['root_volume'];
 $data_volume=$_POST['data_volume'];
 $ssh_keypair_uuid=$_POST['ssh_keypair_uuid'];
 
@@ -246,6 +247,7 @@ if("$template_hypervisor"=="xen") {
 		run_ssh_key('localhost','root',"cp $path_template/$template_uuid $path_base/$template_uuid 2> /dev/null"); 
 	}
 	run_ssh_key('localhost','root',"mkdir -p $path_instance 2> /dev/null; qemu-img create -b $path_base/$template_uuid -f qcow2 $path_instance/$vm_uuid");
+	run_ssh_key('localhost','root',"qemu-img resize $path_instance/$vm_uuid ${root_volume}G");
 }
 
 // DNS Update

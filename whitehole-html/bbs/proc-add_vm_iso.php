@@ -23,6 +23,7 @@ $iso_file="$iso_path/$iso_uuid.iso";
 
 $core=$_POST['core'];
 $memory=$_POST['memory']*1024;
+$root_volume=$_POST['root_volume'];
 $data_volume=$_POST['data_volume'];
 $ssh_keypair_uuid=$_POST['ssh_keypair_uuid'];
 
@@ -153,7 +154,7 @@ $vm_mac_2=$obj->_generateXenMAC();
 run_ssh_key('localhost','root',"/home/whitehole/update-dns.sh create $dns_server $vm_name.test.org $vm_ip_address");
 
 $path_instance="$path_pri/instances";
-run_ssh_key('localhost','root',"mkdir -p $path_instance 2> /dev/null; qemu-img create -f qcow2 $path_instance/$vm_uuid 8G");
+run_ssh_key('localhost','root',"mkdir -p $path_instance 2> /dev/null; qemu-img create -f qcow2 $path_instance/$vm_uuid ${root_volume}G");
 
 if ($data_volume!=0) {
 	if("$template_hypervisor"=="xen") {

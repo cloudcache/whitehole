@@ -12,6 +12,7 @@ Description
 * Source code is not clean yet.
 * Private-IP per tenant assignments are not yet considered. (Directly Public-IP like AWS EC2)
 * Default Template: Ubuntu Server 13.04 x86_64 (Compressed qcow2 Image, about 320MB)
+* Xen support not yet.
 
 Screenshot
 ==========
@@ -27,6 +28,7 @@ Feature
 * SSH-Keypair
 * Live-Migration
 * Monitoring: Traffic/Packet/CPU/DiskIO(Byte/Count)
+* root-Volume Resizing.
 * 2nd-Volume (not like EBS, Can not online attache/detache)
 * Security Group
 * Snapshot (Current Can not Live, Require Reboot)

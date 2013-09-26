@@ -61,7 +61,7 @@ function waiting()
 		position: ['middle',100],
 		autoOpen: false,
 		width: 600,
-		height: 380,draggable: false,
+		height: 420,draggable: false,
 		resizable: false
 	});
 	$('#link_vm_create_template').click(function(){
@@ -74,7 +74,7 @@ function waiting()
 		position: ['middle',100],
 		autoOpen: false,
 		width: 600,
-		height: 380,draggable: false,
+		height: 420,draggable: false,
 		resizable: false
 	});
 	$('#link_vm_create_iso').click(function(){
@@ -560,6 +560,13 @@ while ($data=@mysql_fetch_row($result)) {
 			<option value=4096>4 GB</option>
 			<option value=8192>8 GB</option>
 			<option value=16384>16 GB</option>
+        <tr align=center>
+                <td align=center bgcolor=99CCFF><b>root-Volume
+                <td align=center><select name=root_volume>
+      		        <option value=8>8 GB</option>
+               		<option value=50>50 GB</option>
+                	<option value=100>100 GB</option>
+                	<option value=300>300 GB</option>
 	<tr align=center>
 		<td align=center bgcolor=99CCFF><b>Data-Volume
 		<td align=center><select name=data_volume>
@@ -666,6 +673,13 @@ while ($data=@mysql_fetch_row($result)) {
 			<option value=2048>2 GB</option>
 			<option value=4096>4 GB</option>
 			<option value=8192>8 GB</option>
+        <tr align=center>
+                <td align=center bgcolor=99CCFF><b>root-Volume
+                <td align=center><select name=root_volume>
+      		        <option value=8>8 GB</option>
+               		<option value=50>50 GB</option>
+                	<option value=100>100 GB</option>
+                	<option value=300>300 GB</option>
 	<tr align=center>
 		<td align=center bgcolor=99CCFF><b>Data-Volume
 		<td align=center><select name=data_volume>
