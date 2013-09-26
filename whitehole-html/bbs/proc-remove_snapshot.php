@@ -45,7 +45,8 @@ if (!$snapshot_res) {
 #$pri_path="/home/mnt/pri/instances/";
 #run_ssh_key($target_node,'root',"rm -rf $pri_path/${vm_uuid}.${create_time}");
 
-$query="delete from snapshots where vm_uuid='$vm_uuid' and create_time>='$create_time'";
+#$query="delete from snapshots where vm_uuid='$vm_uuid' and create_time>='$create_time'";
+$query="delete from snapshots where vm_uuid='$vm_uuid' and create_time='$create_time'";
 $result=@mysql_query($query);
 if (!$result) {
 	Query_Error();
