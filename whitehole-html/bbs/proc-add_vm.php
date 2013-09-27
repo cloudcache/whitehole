@@ -278,17 +278,34 @@ do {
 			#run_ssh_key('localhost','root',"sleep 3; mount /dev/nbd${nbd_num}p2 /mnt/nbd$nbd_num;  while [ `ls -l /mnt/nbd$nbd_num/ | wc -l` -le 2 ]; do sleep 2; done");
 			#run_ssh_key('localhost','root',"sleep 1; kpartx -a /dev/nbd$nbd_num; sleep 3; mount /dev/mapper/nbd${nbd_num}p2 /mnt/nbd$nbd_num; while [ `ls -l /mnt/nbd$nbd_num/ | wc -l` -le 2 ]; do sleep 2; done");
 			#run_ssh_key('localhost','root',"sleep 1; kpartx -a /dev/nbd$nbd_num; sleep 3; mount /dev/mapper/nbd${nbd_num}p2 /mnt/nbd$nbd_num");
-			run_ssh_key('localhost','root',"qemu-nbd -c /dev/nbd$nbd_num $path_instance/$vm_uuid; kpartx -a /dev/nbd$nbd_num; mount /dev/mapper/nbd${nbd_num}p2 /mnt/nbd$nbd_num");
+			#run_ssh_key('localhost','root',"qemu-nbd -c /dev/nbd$nbd_num $path_instance/$vm_uuid; kpartx -a /dev/nbd$nbd_num; mount /dev/mapper/nbd${nbd_num}p2 /mnt/nbd$nbd_num");
+                        $part_num="2";
+                        run_ssh_key('localhost','root',"qemu-nbd -c /dev/nbd$nbd_num $path_instance/$vm_uuid");
+                        run_ssh_key('localhost','root',"parted /dev/nbd$nbd_num --script rm $part_num");
+                        $part_begin=rtrim(run_ssh_key('localhost','root',"parted /dev/nbd$nbd_num --script print free | tail -n2 | head -n1 | awk '{print $1}'"));
+                        $part_end=rtrim(run_ssh_key('localhost','root',"parted /dev/nbd$nbd_num --script print free | tail -n2 | head -n1 | awk '{print $2}'"));
+                        run_ssh_key('localhost','root',"parted /dev/nbd$nbd_num --script mkpart primary ext4 $part_begin $part_end 2>&1 > /dev/null");
+                        run_ssh_key('localhost','root',"kpartx -a /dev/nbd$nbd_num; mount /dev/mapper/nbd${nbd_num}p$part_num /mnt/nbd$nbd_num");
 		} else if ("$template_os_type" == "Debian") {
 			#run_ssh_key('localhost','root',"sleep 3; mount /dev/nbd${nbd_num}p1 /mnt/nbd$nbd_num;  while [ `ls -l /mnt/nbd$nbd_num/ | wc -l` -le 2 ]; do sleep 2; done");
 			#run_ssh_key('localhost','root',"sleep 1; kpartx -a /dev/nbd$nbd_num; sleep 3; mount /dev/mapper/nbd${nbd_num}p1 /mnt/nbd$nbd_num; while [ `ls -l /mnt/nbd$nbd_num/ | wc -l` -le 2 ]; do sleep 2; done");
 			#run_ssh_key('localhost','root',"sleep 1; kpartx -a /dev/nbd$nbd_num; sleep 3; mount /dev/mapper/nbd${nbd_num}p1 /mnt/nbd$nbd_num");
-			run_ssh_key('localhost','root',"qemu-nbd -c /dev/nbd$nbd_num $path_instance/$vm_uuid; kpartx -a /dev/nbd$nbd_num; mount /dev/mapper/nbd${nbd_num}p1 /mnt/nbd$nbd_num");
+			#run_ssh_key('localhost','root',"qemu-nbd -c /dev/nbd$nbd_num $path_instance/$vm_uuid; kpartx -a /dev/nbd$nbd_num; mount /dev/mapper/nbd${nbd_num}p1 /mnt/nbd$nbd_num");
+                        $part_num="1";
+                        run_ssh_key('localhost','root',"qemu-nbd -c /dev/nbd$nbd_num $path_instance/$vm_uuid");
+                        run_ssh_key('localhost','root',"parted /dev/nbd$nbd_num --script rm $part_num");
+                        run_ssh_key('localhost','root',"parted -a optimal /dev/nbd$nbd_num --script mkpart primary ext4 0% 100% 2>&1 > /dev/null");
+                        run_ssh_key('localhost','root',"kpartx -a /dev/nbd$nbd_num; mount /dev/mapper/nbd${nbd_num}p$part_num /mnt/nbd$nbd_num");
 		} else if ("$template_os_type" == "vSwitch") {
 			#run_ssh_key('localhost','root',"sleep 3; mount /dev/nbd${nbd_num}p1 /mnt/nbd$nbd_num;  while [ `ls -l /mnt/nbd$nbd_num/ | wc -l` -le 2 ]; do sleep 2; done");
 			#run_ssh_key('localhost','root',"sleep 1; kpartx -a /dev/nbd$nbd_num; sleep 3; mount /dev/mapper/nbd${nbd_num}p1 /mnt/nbd$nbd_num; while [ `ls -l /mnt/nbd$nbd_num/ | wc -l` -le 2 ]; do sleep 2; done");
 			#run_ssh_key('localhost','root',"sleep 1; kpartx -a /dev/nbd$nbd_num; sleep 3; mount /dev/mapper/nbd${nbd_num}p1 /mnt/nbd$nbd_num");
-			run_ssh_key('localhost','root',"qemu-nbd -c /dev/nbd$nbd_num $path_instance/$vm_uuid; kpartx -a /dev/nbd$nbd_num; mount /dev/mapper/nbd${nbd_num}p1 /mnt/nbd$nbd_num");
+			#run_ssh_key('localhost','root',"qemu-nbd -c /dev/nbd$nbd_num $path_instance/$vm_uuid; kpartx -a /dev/nbd$nbd_num; mount /dev/mapper/nbd${nbd_num}p1 /mnt/nbd$nbd_num");
+                        $part_num="1";
+                        run_ssh_key('localhost','root',"qemu-nbd -c /dev/nbd$nbd_num $path_instance/$vm_uuid");
+                        run_ssh_key('localhost','root',"parted /dev/nbd$nbd_num --script rm $part_num");
+                        run_ssh_key('localhost','root',"parted -a optimal /dev/nbd$nbd_num --script mkpart primary ext4 0% 100% 2>&1 > /dev/null");
+                        run_ssh_key('localhost','root',"kpartx -a /dev/nbd$nbd_num; mount /dev/mapper/nbd${nbd_num}p$part_num /mnt/nbd$nbd_num");
 		} else {
 			alert_msg("[Error] 알수 없는 OS 타입입니다.");
 		}
@@ -311,7 +328,7 @@ if ("$template_os_type" == "RedHat") {
 	run_ssh_key('localhost','root',"sed -i 's/HOSTNAME=.*/HOSTNAME=$vm_name.@_DOMAIN_@/g' /mnt/nbd$nbd_num/etc/sysconfig/network");
 
 	## 임시: 여러가지...
-	run_ssh_key('localhost','root',"sed -i '/172.21.19.116/d' /mnt/nbd$nbd_num/etc/yum.conf /mnt/nbd$nbd_num/etc/wgetrc; sed -i '/172.21.80.54/d' /mnt/nbd$nbd_num/etc/yum.conf /mnt/nbd$nbd_num/etc/wgetrc; sed -i 's/^Defaults    requiretty$/#Defaults    requiretty/g' /etc/sudoers /mnt/nbd$nbd_num/etc/sudoers; echo 'setterm -blank off' >> /mnt/nbd$nbd_num/etc/rc.local; sed -i '/172.21.19.15/d' /mnt/nbd$nbd_num/etc/ntp.conf; echo 'UseDNS no' >> /mnt/nbd$nbd_num/etc/ssh/sshd_config");
+	run_ssh_key('localhost','root',"sed -i '/172.21.19.116/d' /mnt/nbd$nbd_num/etc/yum.conf /mnt/nbd$nbd_num/etc/wgetrc; sed -i '/172.21.80.54/d' /mnt/nbd$nbd_num/etc/yum.conf /mnt/nbd$nbd_num/etc/wgetrc; sed -i 's/^Defaults    requiretty$/#Defaults    requiretty/g' /etc/sudoers /mnt/nbd$nbd_num/etc/sudoers; echo 'setterm -blank off' >> /mnt/nbd$nbd_num/etc/rc.local; echo 'resize2fs /dev/vda$part_num; sed -i \"/resize2fs/d\" /etc/rc.local' >> /mnt/nbd$nbd_num/etc/rc.local; sed -i '/172.21.19.15/d' /mnt/nbd$nbd_num/etc/ntp.conf; echo 'UseDNS no' >> /mnt/nbd$nbd_num/etc/ssh/sshd_config");
 	
 	$tmp_file="/tmp/hostname-$vm_uuid";
 	
@@ -350,7 +367,7 @@ EOF;
 #	run_ssh_key('localhost','root',"rm -f /etc/udev/rules.d/70-persistent-cd.rules /etc/udev/rules.d/70-persistent-net.rules /lib/udev/rules.d/75-net-description.rules /lib/udev/rules.d/75-persistent-net-generator.rules /lib/udev/rules.d/75-cd-aliases-generator.rules");
 
 	## 임시: 여러가지...
-	run_ssh_key('localhost','root',"sed -i '/172.21.19.116/d' /mnt/nbd$nbd_num/etc/apt/apt.conf /mnt/nbd$nbd_num/etc/wgetrc; sed -i '/172.21.80.54/d' /mnt/nbd$nbd_num/etc/apt/apt.conf /mnt/nbd$nbd_num/etc/wgetrc; sed -i 's/kr.archive.ubuntu.com/ftp.daum.net/g' /mnt/nbd$nbd_num/etc/apt/sources.list; sed -i '/^exit 0/d' /mnt/nbd$nbd_num/etc/rc.local; echo 'setterm -blank off' >> /mnt/nbd$nbd_num/etc/rc.local; echo 'apt-get update && apt-get -y install ntp && sed -i \"/apt-get -y install ntp/d\" /etc/rc.local' >> /mnt/nbd$nbd_num/etc/rc.local; echo 'exit 0' >> /mnt/nbd$nbd_num/etc/rc.local");
+	run_ssh_key('localhost','root',"sed -i '/172.21.19.116/d' /mnt/nbd$nbd_num/etc/apt/apt.conf /mnt/nbd$nbd_num/etc/wgetrc; sed -i '/172.21.80.54/d' /mnt/nbd$nbd_num/etc/apt/apt.conf /mnt/nbd$nbd_num/etc/wgetrc; sed -i 's/kr.archive.ubuntu.com/ftp.daum.net/g' /mnt/nbd$nbd_num/etc/apt/sources.list; sed -i '/^exit 0/d' /mnt/nbd$nbd_num/etc/rc.local; echo 'setterm -blank off' >> /mnt/nbd$nbd_num/etc/rc.local; echo 'resize2fs /dev/vda$part_num; sed -i \"/resize2fs/d\" /etc/rc.local' >> /mnt/nbd$nbd_num/etc/rc.local; echo 'apt-get update && apt-get -y install ntp && sed -i \"/apt-get -y install ntp/d\" /etc/rc.local' >> /mnt/nbd$nbd_num/etc/rc.local; echo 'exit 0' >> /mnt/nbd$nbd_num/etc/rc.local");
 
 	$tmp_file="/tmp/hostname-$vm_uuid";
 

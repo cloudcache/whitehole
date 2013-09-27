@@ -93,7 +93,7 @@ apt-get update
 
 cd $SRC_DIR
 msg "Install Packages for Whitehole"
-apt-get -y install make apache2 libapache2-mod-php5 libssh2-php libssh2-1 libssh2-1-dbg libssh2-1-dev php5 php5-dev php5-cli php5-common php5-curl php5-gd php5-imagick php5-mysql php5-snmp php5-xmlrpc mysql-server mysql-client bind9 snmp snmp-mibs-downloader snmpd mrtg nfs-common libvirt-dev libxml2 libxml2-dev libxml2-utils xsltproc bind9 bind9utils virt-manager qemu-utils kpartx libguestfs-tools
+apt-get -y install make apache2 libapache2-mod-php5 libssh2-php libssh2-1 libssh2-1-dbg libssh2-1-dev php5 php5-dev php5-cli php5-common php5-curl php5-gd php5-imagick php5-mysql php5-snmp php5-xmlrpc mysql-server mysql-client bind9 snmp snmp-mibs-downloader snmpd mrtg nfs-common libvirt-dev libxml2 libxml2-dev libxml2-utils xsltproc bind9 bind9utils virt-manager qemu-utils kpartx libguestfs-tools parted
 mysqladmin -u root password $mysql_pw_1
 
 cd $SRC_DIR

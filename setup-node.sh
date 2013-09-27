@@ -56,7 +56,7 @@ export DEBIAN_FRONTEND=noninteractive
 cd $SRC_DIR
 msg "Install Package for Whitehole"
 apt-get update
-apt-get -q -y install kvm libvirt-bin sysstat screen socat nfs-common libguestfs-tools
+apt-get -q -y install kvm libvirt-bin sysstat screen socat nfs-common libguestfs-tools parted
 
 cd $SRC_DIR
 msg "Configure Bridge & Network Env."
