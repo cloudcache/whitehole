@@ -956,7 +956,7 @@ $vnc_port=@$xml_array['devices']['graphics']['@attributes']['port'];
 # MRTG 설정
 run_ssh_key('localhost','root',"mkdir /var/www/mrtg/$vm_uuid; echo 'Preparing MRTG.......' > /var/www/mrtg/$vm_uuid/index.html; cp /home/whitehole/mrtg.template.cfg /home/whitehole/mrtg.cfg/$vm_uuid.cfg; sed -i 's/__uuid__/$vm_uuid/g' /home/whitehole/mrtg.cfg/$vm_uuid.cfg");
 
-$query_create="insert into info_vm values ('$vm_uuid','$create_time','$ssh_keypair_uuid','$ssh_keypair_desc','$vm_ip_address','$vm_name','$core','$memory','$vm_mac','$template_bits','$template_hypervisor','$target_node','$vnc_port','$loguser','$data_volume','$template_os_type','$hostname','1','$security_group_uuid','T___$template_uuid','1')";
+$query_create="insert into info_vm values ('$vm_uuid','$create_time','$ssh_keypair_uuid','$ssh_keypair_desc','$vm_ip_address','$vm_name','$core','$memory','$vm_mac','$template_bits','$template_hypervisor','$target_node','$vnc_port','$loguser','$data_volume','$template_os_type','$hostname','1','$security_group_uuid','T___$template_uuid','1','$root_volume')";
 
 $result_create=@mysql_query($query_create);
 if (!$result_create) {

@@ -382,7 +382,7 @@ run_ssh_key('localhost','root',"echo 'Preparing MRTG.......' > /var/www/mrtg/$vm
 run_ssh_key('localhost','root',"cp /home/whitehole/mrtg.template.cfg /home/whitehole/mrtg.cfg/$vm_uuid.cfg");
 run_ssh_key('localhost','root',"sed -i 's/__uuid__/$vm_uuid/g' /home/whitehole/mrtg.cfg/$vm_uuid.cfg");
 
-$query_create="insert into info_vm values ('$vm_uuid','$create_time','$ssh_keypair_uuid','$ssh_keypair_desc','$vm_ip_address','$vm_name','$core','$memory','$vm_mac','64','kvm','$target_node','$vnc_port','$loguser','$data_volume','$iso_os_type','$hostname','1','$security_group_uuid','I___$iso_uuid','1')";
+$query_create="insert into info_vm values ('$vm_uuid','$create_time','$ssh_keypair_uuid','$ssh_keypair_desc','$vm_ip_address','$vm_name','$core','$memory','$vm_mac','64','kvm','$target_node','$vnc_port','$loguser','$data_volume','$iso_os_type','$hostname','1','$security_group_uuid','I___$iso_uuid','1','$root_volume')";
 
 $result_create=@mysql_query($query_create);
 if (!$result_create) {

@@ -70,6 +70,7 @@ CREATE TABLE `info_vm` (
   `security_group_uuid` varchar(256) DEFAULT NULL,
   `origin` varchar(256) DEFAULT NULL,
   `protect` int(1) NOT NULL,
+  `root_volume` int(11) DEFAULT NULL,
   PRIMARY KEY (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;

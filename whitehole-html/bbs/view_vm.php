@@ -164,6 +164,7 @@ while ($data = mysql_fetch_row($result)) {
 	$security_group_rule_name=$data_sg['0'];
 	$security_group_uuid=$data_sg['1'];
 	$protect = $data['20'];
+	$root_volume = $data['21'];
 ?>
 	<h3>
 		<table width="98%" border=0>
@@ -305,6 +306,7 @@ if($query_origin) {
 						<ul>
 						<li><b>vCPU:</b> <?=$cpu?> EA<p></li>
 						<li><b>vMEM:</b> <?=$memory_h?> MB<p></li>
+						<li><b>root-Volume:</b> <? if (!$root_volume) { echo ("Unknown"); } else { echo ("$root_volume GB"); } ?><p></li>
 						<li><b>2nd-Volume:</b>	<? if (!$data_volume) { echo ("N/A"); } else { echo ("$data_volume GB"); } ?><p></li>
 						</ul>
 					</td>
