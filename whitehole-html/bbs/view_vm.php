@@ -221,7 +221,7 @@ while ($data = mysql_fetch_row($result)) {
 			<table width=100% border=1 cellspacing=0 cellpadding=5 bordercolor=lightblue>
 				<tr bgcolor="efffff">
 					<? if ($loguser=="admin") { ?>
-					<td align="center" width=290><b>Admin
+					<td align="center" width=280><b>Admin
 					<? } ?>
 					<td align="center"><b>VM Control
 					<td align="center" width=170><b>Resource
