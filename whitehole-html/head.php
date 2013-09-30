@@ -525,7 +525,7 @@ mysql_select_db($db_name);
 			<select name=template_uuid>
 <?
 
-$query="select uuid,name from vm_template where public='1' or account='$loguser' order by name desc";
+$query="select uuid,name from vm_template where public='1' or account='$loguser' or public='1' order by name desc";
 #if ($loguser=="admin") {
 #	$query="select uuid,description from vm_template where description not like 'Template-Vyatta%' order by name desc";
 #	#$query="select uuid,description from vm_template order by name desc";
