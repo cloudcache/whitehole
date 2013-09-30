@@ -12,7 +12,8 @@ Description
 * Source code is not clean yet.
 * Private-IP per tenant assignments are not yet considered. (Directly Public-IP like AWS EC2)
 * Default Template: Ubuntu Server 13.04 x86_64 (Compressed qcow2 Image, about 320MB)
-* Xen support not yet.
+* Xen-hypervisor is not support yet.
+* Windows-VM is not support yes.
 
 Screenshot
 ==========
