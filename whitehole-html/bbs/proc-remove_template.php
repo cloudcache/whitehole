@@ -15,13 +15,11 @@ if (!$result) {
     Query_Error();
 }
 $data_pre=@mysql_fetch_row($result_pre);
-$used_count=$data['0'];
+$used_count=$data_pre['0'];
 if ($used_count != 0) {
     alert_msg("[Error] ëì Templateì´ë¯¸ì§ë ì¼ë¶ VMì ìí´ ì¬ì©ì¤ì ììµëë¤.");
     exit;
 }
-
-exit;
 
 $query="delete from vm_template where uuid='$uuid'";
 $result=@mysql_query($query);
