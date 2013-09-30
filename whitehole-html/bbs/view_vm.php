@@ -224,7 +224,7 @@ while ($data = mysql_fetch_row($result)) {
 					<td align="center" width=290><b>Admin
 					<? } ?>
 					<td align="center"><b>VM Control
-					<td align="center" width=180><b>Resource
+					<td align="center" width=170><b>Resource
 					<td align="center"><b>Networking
 					<td align="center"><b>Etc
 					<td align="center"><b>Terminate
@@ -236,14 +236,14 @@ while ($data = mysql_fetch_row($result)) {
 						<li><b>OS Type:</b> <?=$os_type?> (<?=$bits?> bit)<p></li>
 						<li><b>Hypervisor:</b> <?=$hypervisor?><p></li>
 						<li><b>Host Node:</b> <?=$node?><p></li>
-						<li><b>Origin:</b>
+						<li><b>Provisioned by:</b>
 <?
 if ($origin_type=="T") {
 	echo "Template";
 	$query_origin="select name from vm_template where uuid='$origin_uuid'";
 } else if ($origin_type=="I") {
 	$query_origin="select name from iso where uuid='$origin_uuid'";
-	echo "ISO";
+	echo "ISO (Custom Install)";
 }
 if($query_origin) {
     $result_origin=@mysql_query($query_origin);
