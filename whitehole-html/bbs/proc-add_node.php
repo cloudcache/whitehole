@@ -76,11 +76,11 @@ if("$hypervisor"=="xen") {
 	$conn=libvirt_connect("qemu+ssh://root@$ssh_host/system","0");
 }
 
-run_ssh_key($ssh_host,'root',"echo '$sec_host:$sec_export_path $path_sec $fs_type_sec defaults,_netdev 0 0' >> /etc/fstab");
-run_ssh_key($ssh_host,'root',"/bin/mount -t $fs_type_sec -o defaults,_netdev $sec_host:$sec_export_path $path_sec");
+run_ssh_key($ssh_host,'root',"echo '$sec_host:$sec_export_path $path_sec $fs_type_sec defaults,_netdev,nodiratime,direct-io-mode=disable 0 0' >> /etc/fstab");
+run_ssh_key($ssh_host,'root',"/bin/mount -t $fs_type_sec -o defaults,_netdev,nodiratime,direct-io-mode=disable $sec_host:$sec_export_path $path_sec");
 
-run_ssh_key($ssh_host,'root',"echo '$pri_host:$pri_export_path $path_pri $fs_type_pri defaults,_netdev 0 0' >> /etc/fstab");
-run_ssh_key($ssh_host,'root',"/bin/mount -t $fs_type_pri -o defaults,_netdev $sec_host:$pri_export_path $path_pri");
+run_ssh_key($ssh_host,'root',"echo '$pri_host:$pri_export_path $path_pri $fs_type_pri defaults,_netdev,nodiratime,direct-io-mode=disable 0 0' >> /etc/fstab");
+run_ssh_key($ssh_host,'root',"/bin/mount -t $fs_type_pri -o defaults,_netdev,nodiratime,direct-io-mode=disable $sec_host:$pri_export_path $path_pri");
 
 run_ssh_pass($ssh_host, 'root', $ssh_pass, "mkdir -p $path_pri/base $path_pri/instances $path_sec/iso $path_sec/ssh-keypair $path_sec/templates $path_sec/xml-nwfilter");
 

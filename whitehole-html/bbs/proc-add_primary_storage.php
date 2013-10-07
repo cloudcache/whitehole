@@ -25,7 +25,7 @@ run_ssh_key('localhost','root',"test ! -d $mount_path && mkdir -p $mount_path");
 
 $return=rtrim(run_ssh_key('localhost','root',"mount -t $fs_type $host:$export_path $mount_path; echo $?"));
 if ($return==0) {
-	run_ssh_key('localhost','root',"echo '$host:$export_path $mount_path $fs_type defaults,_netdev 0 0' >> /etc/fstab");
+	run_ssh_key('localhost','root',"echo '$host:$export_path $mount_path $fs_type defaults,_netdev,nodiratime,direct-io-mode=disable 0 0' >> /etc/fstab");
 	$query="insert into primary_storage value ('$uuid','$host','$fs_type','$export_path','$mount_path','$create_time','','','','')";
 	$result=@mysql_query($query);
 	if (!$result) {
